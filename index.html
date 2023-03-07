@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ayse's March Madness Team Score Calculator</title>
+	<style>
+		:root {
+			font-family: "Inter", sans-serif;
+		}
+
+		@supports (font-variation-settings: normal) {
+			:root {
+				font-family: "Inter var", sans-serif;
+			}
+		}
+
+		body {
+			display: grid;
+			justify-content: center;
+			align-content: center;
+		}
+	</style>
+	<script>
+		function changeInput() {
+			let teamName = team.value.toLowerCase().replace(/\s/g, "");
+
+			teamScore.innerText = [...teamName].reduce(
+				(sum, char) => sum + char.charCodeAt(0) - 96,
+				0
+			);
+			// let priceAmount = parseInt(price.innerText);
+			// priceAmount += 5;
+			// price.innerText = priceAmount;
+		}
+
+	</script>
+</head>
+
+<body>
+	<h1>Ayse's March Madness Team Score Calculator</h1>
+	<input type="text" id="team" oninput="changeInput()" placeholder="Type team name here...">
+	<p>Team Score: <span id="teamScore"></span></p>
+</body>
+
+</html>
